@@ -1,5 +1,7 @@
 package com.bl.addessbook;
 
+import java.util.Scanner;
+
 public class Contact {
     String firstName;
     String lastName;
@@ -11,17 +13,6 @@ public class Contact {
     int zip;
 
 
-    public Contact(String firstName, String lastName, String address, String city, String state, String email, long mobileNo, int zip) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address= address;
-        this.city = city;
-        this.state = state;
-        this.email = email;
-        this.mobileNo = mobileNo;
-        this.zip = zip;
-
-    }
     public String getFirstName() {
         return firstName;
     }
@@ -86,9 +77,38 @@ public class Contact {
         this.zip = zip;
     }
 
-    public String toString() {
-        return "Contact [firstName=" + firstName + ", lastName=" + lastName + ", Address="+address+", city=" + city
-                + ", state=" + state + ", pincode=" + zip + ", MobileNo=" + mobileNo + "]" + "\n";
+    public void createContacts(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter First Name : ");
+        setFirstName(sc.nextLine());
+        System.out.print("Enter Last Name : ");
+        setLastName(sc.nextLine());
+        System.out.print("Enter City Name : ");
+        setCity(sc.nextLine());
+        System.out.print("Enter State Name : ");
+        setState(sc.nextLine());
+        System.out.print("Enter Email : ");
+        setEmail(sc.nextLine());
+        System.out.print("Enter Zip Code : ");
+        setZip(sc.nextInt());
+        System.out.print("Enter Phone Number : ");
+        setMobileNo(sc.nextLong());
+
+    }
+    public String toString()
+    {
+
+        String str = "Contacts: [First_Name = " + getFirstName() + ", Last_Name = " + getLastName() +
+                ", City = " + getCity() + ", State = " + getState() + ", Email = " + getEmail() + ", Zip = " + getZip() + ", PhoneNumber = " + getMobileNo()  +"]";
+        return str;
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to address Book Program");
+        Contact contact = new Contact();
+        contact.createContacts();
+        System.out.println(contact.toString());
     }
 }
 
