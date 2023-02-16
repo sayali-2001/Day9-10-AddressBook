@@ -97,6 +97,26 @@ public class AddressBookMain {
         }
         System.out.println(toString());
     }
+    public void deletePerson()
+    {
+        System.out.println("enter First name to delete details:");
+        Scanner scan = new Scanner(System.in);
+        String name = scan.nextLine();
+
+        for (int i=0; i < contactbook.size(); i++)
+        {
+            String personName = contactbook.get(i).firstName;
+
+            if (name.equals(personName))
+            {
+                contactbook.remove(i);
+                System.out.println("this person details is deleted");
+                break;
+            }
+            else
+                System.out.println("please enter valid name");
+        }
+    }
     public static void main(String[] args)
     {
         System.out.println("Welcome To The Address Book Problem-");
@@ -124,6 +144,9 @@ public class AddressBookMain {
                     break;
 
                 case 4:
+                    address.deletePerson();
+                    break;
+                case 5:
                     System.out.println("Exit");
                     k = 1;
                     break;
